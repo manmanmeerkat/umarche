@@ -30,8 +30,8 @@ class ShopController extends Controller
 
     public function index()
     {
-        $ownerId = Auth::id();
-        $shops = Shop::where('owner_id', $ownerId)->get();
+        // $ownerId = Auth::id();
+        $shops = Shop::where('owner_id', Auth::id())->get();
 
         return view('owner.shops.index',
         compact('shops'));
@@ -40,7 +40,8 @@ class ShopController extends Controller
 
     public function edit($id)
     {
-
+        $shop = Shop::findOrFail($id);
+        return view('owner.shop.edit', compact('shop'));
     }
 
     public function update(Request $request, $id)
