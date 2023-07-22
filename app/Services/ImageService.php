@@ -17,7 +17,7 @@ class ImageService
         ->resize(1920, 1080)->encode();
         Storage::put('public/'. $folderName . '/' . $fileNameToStore,$resizedImage);
 
-        return $fileName = uniqid(rand(). '_');
+        return $fileNameToStore;
 
     }
 }
