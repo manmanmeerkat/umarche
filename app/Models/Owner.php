@@ -9,6 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Shop;
+use App\Models\Images;
 
 
 class Owner extends Authenticatable
@@ -52,4 +53,8 @@ class Owner extends Authenticatable
         return $this->hasOne(Shop::class);
     }
 
+    public function image()
+    {
+        return $this->hasmany(Image::class);
+    }
 }
